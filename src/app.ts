@@ -273,8 +273,6 @@ const handleSubmit = (
     ev.preventDefault();
     createStartForm(fromInputProps);
   });
-
-  const titleText = type.value;
   
   form2.addEventListener("submit", (e: Event) => {
     e.preventDefault();
