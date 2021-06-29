@@ -1,0 +1,12 @@
+%border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+%text-center {
+    text-align: center;
+}
+
+$font-weights: ( "normal": 400, "fatter": 600, "bold": 700);
+$font-sizes: ( "small": 0.7rem, "smallquite": 0.8rem, "normal": 1rem)
