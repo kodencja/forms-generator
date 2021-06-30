@@ -49,15 +49,8 @@
     }
 }
 
-// .bton-sm,
-// .bton-group-sm>.bton {
-//     @include paddMrg("padding", 0.25rem, 0.5rem);
-//     line-height: 1.5;
-//     @extend %border-radius-thin;
-// }
 .bton-down {
     position: relative;
-    // @include colorFn("bgr", rgba(126, 126, 126, 0.65));
     @include colorFn("bgr", rgb(135, 149, 168));
     @include paddMrg("padding", 10px, 10px);
     font-size: size("smallquite");
@@ -80,9 +73,6 @@
     @include colorFn("font", rgb(241, 241, 241));
     @include colorFn("bgr", rgb(240, 240, 240));
     @include paddMrg("padding", 15px, 10px);
-    // @include paddMrg("margin", auto);
-    // @include paddMrg("margin", 3rem, auto, .5rem, auto);
-    // @include paddMrg("padding", 40px, 10px, 10px, 10px);
     width: 100%;
     position: absolute;
     bottom: 0;

@@ -14,8 +14,6 @@
 }
 
 body {
-    // margin: 0;
-    // @extend %border-box;
     position: relative;
     @include paddMrg("margin", 0);
     font-family: Roboto;
@@ -26,19 +24,14 @@ body {
 #wrapper {
     max-width: 960px;
     @include paddMrg("margin", 0, auto);
-    // margin: 0 auto;
     h1 {
         @include paddMrg("margin", 40px, auto);
-        // margin: 40px auto;
         @include colorFn("font", #da008a);
-        // color: #ff0aa7;
         @extend %text-center;
         font-variant: small-caps;
         letter-spacing: 1.7px;
-        // text-align: center;
     }
     ul {
-        // padding: 0;
         @include paddMrg("padding", 0);
         list-style-type: none;
     }
@@ -47,49 +40,35 @@ body {
 li {
     @include paddMrg("padding", 6px, 10px);
     @include paddMrg("margin", 10px, auto);
-    // padding: 6px 10px;
     border: 1px solid #eee;
-    // margin: 10px auto;
     h4 {
         @include colorFn("font", #cf0083);
-        // color: #ff0aa7;
         @include paddMrg("margin", 0);
-        // margin: 0;
         text-transform: capitalize;
     }
     p {
         @include colorFn("font", #333);
-        // color: #333;
         @include paddMrg("margin", 8px, 0, 0, auto);
-        // margin: 8px 0 0;
     }
 }
 
 form {
     max-width: 960px;
     @include paddMrg("margin", auto);
-    // margin: 0 auto;
     @extend %text-center;
-    // text-align: center;
 }
 
 label {
     display: block;
     font-weight: weight("bold");
-    // font-weight: bold;
     font-size: size("smallquite");
-    // font-size: 0.8em;
     @include colorFn("font", #333);
-    // color: #333;
-    // @include paddMrg("margin", 16px, 0, 6px, auto);
     @include paddMrg("margin", 16px, 0, 6px);
-    // margin: 16px 0 6px;
 }
 
 input,
 select {
     @include paddMrg("padding", 6px);
-    // padding: 6px;
     border: 1px solid #e1e1e1;
     @include colorFn("bgr", rgb(246, 246, 246));
     border-radius: 4px;
@@ -98,69 +77,33 @@ select {
 .field {
     display: inline-block;
     @include paddMrg("margin", 0, 10px);
-    // margin: 0 10px;
 }
 
 button {
     @include colorFn("font", white);
-    // color: white;
     border: 0;
-    // @include colorFn("bgr", #8700e0);
     @include colorFn("bgr", #da008a);
-    // @include colorFn("bgr", #ff0aa7);
-    // @include colorFn("bgr", #00bd00);
-    // background: #ff0aa7;
     @include paddMrg("padding", 6px);
     @include paddMrg("margin", 10px);
-    // padding: 6px;
     min-width: 80px;
     border-radius: 4px;
 }
 
-// footer 
 div.form-container {
-    // position: relative;
-    // @include colorFn("bgr", rgba(209, 240, 240, 0.452));
     @include colorFn("bgr", rgba(208, 219, 236, 0.746));
-    // @include colorFn("bgr", rgba(201, 214, 233, 0.815));
-    // @include colorFn("bgr", rgba(203, 236, 234, 0.794));
-    // background: #eee;
     @include paddMrg("padding", 60px);
     @include paddMrg("margin", "top", 60px);
-    // @include paddMrg("margin", "bottom", 60px);
-    // padding: 60px;
-    // margin-top: 60px;
-    // a {
-    //     // text-align: center;
-    //     @extend %text-center;
-    //     display: block;
-    //     @include colorFn("font", #999);
-    //     // color: #999;
-    //     @include paddMrg("margin", "top", 40px);
-    //     // margin-top: 40px;
-    //     font-size: size("small");
-    //     // font-size: 0.7em;
-    // }
     button.btn-submit {
         display: block;
         @include paddMrg("margin", auto);
         @include paddMrg("margin", 'top', 1.5rem);
-        // margin-left: auto;
-        // margin-right: auto;
     }
     button.reset {
         display: block;
         @include paddMrg("margin", auto);
         @include paddMrg("margin", 'top', 2rem);
         @include paddMrg("margin", 'bottom', 3rem);
-        // @include colorFn("bgr", darkcyan);
         @include colorFn("bgr", #7322a8);
-        // @include colorFn("bgr", #7501c2);
-        // @include colorFn("bgr", #8700e0);
-        // color: darkmagenta;
-        // @include colorFn("bgr", #00bd00);
-        // margin-left: auto;
-        // margin-right: auto;
     }
 }
 
