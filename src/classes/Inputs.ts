@@ -1,5 +1,6 @@
-import { InputsGeneral, MapType1, MapType2, ObjWithFormVal } from "./../interfaces/InputGeneral";
+import { InputsGeneral } from "./../interfaces/InputGeneral";
 
+// an abstract class with most important props needed to create an input
 abstract class InputClass<T extends string | string[]>
   implements InputsGeneral
 {
@@ -18,6 +19,7 @@ abstract class InputClass<T extends string | string[]>
   }
 }
 
+// a class, which instances create an object with all values needed for a "select" or "input" TAG
 export class GenerateInputProps<
   T extends string | string[]
 > extends InputClass<T> {
@@ -38,6 +40,8 @@ export class GenerateInputProps<
 
 }
 
+
+// a class, which instances create an object with an object "selectObj" containing props and values needed to create a particular "select" or "input" TAG, plus name of the "wrappClassName", and name of the "wrappTagName"; the props "options" and "wrapp" are HTMLElements or an array of HTMLElements
 export class CreateInput<T extends string[]> {
   constructor(
     public selectObj: {
@@ -58,6 +62,8 @@ export class CreateInput<T extends string[]> {
     public wrapp?: HTMLElement | null
   ) {}
 
+
+  // a method to create INPUT or SELECT TAG along with LABEL embraced into WRAPP TAG
   createInp() {
     const input = document.createElement(this.selectObj.tagName);
     const label = document.createElement("label");
@@ -104,78 +110,5 @@ export class CreateInput<T extends string[]> {
     }
 
     return this.wrapp;
-  }
-}
-
-export class ObjectWithFormValues implements ObjWithFormVal {
-  constructor(
-    public inputsArray: CreateInput<string[]>[],
-    public formVersion: string,
-    public formObj: MapType1 = new Map<string, MapType2>()
-  ) {}
-
-  createMapObjWithFormValues(): Map<string, HTMLSelectElement | HTMLInputElement> {
-    this.inputsArray.forEach((el) => {
-      this.formObj.set(
-        el.selectObj.id!,
-        document.querySelector(`#${el.selectObj.id}`)!
-      );
-    });
-    return this.formObj;
-  }
-
-  printMsg(): string {
-    this.createMapObjWithFormValues();
-
-    let msg: string;
-
-    switch (this.formVersion) {
-      case "Accounting":
-        if (this.formObj.get("type")?.value === "payment") {
-          msg = `&lt;strong&gt;${this.formObj.get("tofrom")?.value}&lt;/strong&gt; is owed &lt;b&gt;$${
-            this.formObj.get("amount")?.value
-          }&lt;/b&gt; for &lt;b&gt;${this.formObj.get("details")?.value}&lt;/b&gt;`;
-          break;
-        } else {
-          msg = `&lt;b&gt;${this.formObj.get("tofrom")?.value}&lt;/b&gt; owes &lt;b&gt;$${
-            this.formObj.get("amount")?.value
-          }&lt;/b&gt; for &lt;b&gt;${this.formObj.get("details")?.value}&lt;/b&gt;`;
-          break;
-        }
-
-      case "Reservation":
-        let have: string;
-        if(this.formObj.get("personTitle")!.value === 'Mr and Mrs'){
-          have = 'have';
-        } else {
-          have = 'has';
-        }
-        msg = `&lt;b&gt;${this.formObj.get("personTitle")?.value}&lt;/b&gt; &lt;b&gt;${
-          this.formObj.get("customer")?.value
-        }&lt;/b&gt; ${have} booked a &lt;b&gt;${this.formObj.get("version")?.value}&lt;/b&gt; &lt;b&gt;${
-          this.formObj.get("roomCat")?.value
-        }&lt;/b&gt; room for &lt;b&gt;${this.formObj.get("peopleNo")?.value}&lt;/b&gt; people in &lt;b&gt;${
-          this.formObj.get("hotel")?.value
-        }&lt;/b&gt; hotel from &lt;b&gt;${this.formObj.get("from")?.value}&lt;/b&gt; to &lt;b&gt;${
-          this.formObj.get("to")?.value
-        }&lt;/b&gt;`;
-        break;
-
-      case "Todo-List":
-        msg = `My new task is to &lt;b&gt;${
-          this.formObj.get("task")?.value
-        }&lt;/b&gt;. It begins on &lt;b&gt;${
-          this.formObj.get("start")?.value
-        }&lt;/b&gt; and must be accomplished by &lt;b&gt;${this.formObj.get("deadline")?.value}&lt;/b&gt;`;
-        break;
-
-      default:
-        msg = `&lt;b&gt;${this.formObj.get("tofrom")?.value}&lt;/b&gt; owes &lt;b&gt;$${
-          this.formObj.get("amount")?.value
-        }&lt;/b&gt; for &lt;b&gt;${this.formObj.get("details")?.value}&lt;/b&gt;`;
-        break;
-    }
-
-    return msg;
   }
 }

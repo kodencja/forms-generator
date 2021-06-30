@@ -1,16 +1,18 @@
 import { CreateInput } from "../classes/Inputs";
 
+// interface for 'inputProps' object used to keep values for all possible inputs, not just for a particular one, therefore all values are put in an array []
 export interface FormProps {
   labelSelect: string[];
   selectID: string[];
   optionsText: string[][];
-  optionsValue: string[][];  
+  optionsValue: string[][];
   labelInput?: string[];
   inputID?: string[];
   placeholder?: (string | undefined)[];
   types?: string[];
 }
 
+// interface for an abstract class "InputClass"
 export interface InputsGeneral {
   labelText: string;
   tagName: string;
@@ -20,13 +22,19 @@ export interface InputsGeneral {
   placeholder?: string;
 }
 
-export type MapType1 = Map<string, HTMLSelectElement | HTMLInputElement>;
-export type MapType2 = HTMLSelectElement | HTMLInputElement;
+// types for interface "ObjWithFormVal" and for Map Object generated in a class "ObjectWithFormValues" in FormValues.ts file
+export type MapType = Map<string, HTMLSelectElement | HTMLInputElement>;
+export type SelectOrInput = HTMLSelectElement | HTMLInputElement;
 
+
+// interface for a class "ObjectWithFormValues" in FormValues.ts file
 export interface ObjWithFormVal {
   inputsArray: CreateInput<string[]>[];
-    formVersion: string;
-    formObj: MapType1;
-    createMapObjWithFormValues(): Map<string, HTMLSelectElement | HTMLInputElement>; 
-    printMsg(): string;
+  formVersion: string;
+  formObj: MapType;
+  createMapObjWithFormValues(): Map<
+    string,
+    SelectOrInput
+  >;
+  printMsg(): string;
 }
