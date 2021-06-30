@@ -1,3 +1,5 @@
+// import { InputsGeneral } from './../interfaces/InputGeneral';
+// import { PrintFormat } from "./../interfaces/InputGeneral";
 /*
 1. register a list container (ul) in the constructor
 2. create a render method to render a new 'li' in the container:
@@ -10,19 +12,15 @@ export class ListTemplate {
     constructor(container) {
         this.container = container;
     }
-    // 'pos' must be a string type with either 'start' or 'end' value; 'item' - it is a new Invoice or new Payment object
-    // render(text: string, heading: string, pos: string = 'top' || 'bottom'){
+    // 'pos' must be a string type with either 'top' or 'bottom' value;
     render(text, heading, pos) {
-        // render(item: HasFormatter, heading: string, pos: string){
         const li = document.createElement('li');
         const h4 = document.createElement('h4');
         h4.innerHTML = heading;
         li.append(h4);
         const p = document.createElement('p');
-        // Invoice and Payments classes are needed just to this - to invoke format() method and provide content for 'innerText' of 'p'
         p.innerHTML = text;
         const resText = p.textContent;
-        console.log(resText);
         p.innerHTML = resText;
         // p.append(text);
         li.append(p);

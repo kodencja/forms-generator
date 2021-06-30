@@ -1,12 +1,12 @@
-let fromInputProps;
-fromInputProps = {
+let inputProps;
+inputProps = {
     labelSelect: [],
     selectID: [],
     optionsText: [],
     optionsValue: [],
-    // labelInput: [],
-    // inputID: [],
-    // placeholder: [],
-    // types: [],
+    labelInput: [],
+    inputID: [],
+    placeholder: [],
+    types: [],
 };
-export { fromInputProps };
+export { inputProps };

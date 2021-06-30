@@ -19,15 +19,9 @@ export class GenerateInputProps extends InputClass {
         this.optionsValue = optionsValue;
         this.optionsClass = optionsClass;
     }
-    get optionsVal() {
-        return this.optionsValue;
-    }
 }
-// export class CreateSelectInput<T extends string[]> extends GenereteSelectProps<T> {
 export class CreateInput {
-    constructor(selectObj, 
-    // public selectObj: {},
-    options = [], wrappClassName, wrappTagName, wrapp) {
+    constructor(selectObj, options = [], wrappClassName, wrappTagName, wrapp) {
         this.selectObj = selectObj;
         this.options = options;
         this.wrappClassName = wrappClassName;
@@ -37,10 +31,7 @@ export class CreateInput {
     createInp() {
         const input = document.createElement(this.selectObj.tagName);
         const label = document.createElement("label");
-        // const option =
-        // let wrapp, options: HTMLElement[] = [];
         label.innerHTML = this.selectObj.labelText;
-        // input.setAttribute("type", this.type);
         if (this.selectObj.optionsText && this.selectObj.optionsValue) {
             for (let i = 0; i < this.selectObj.optionsText.length; i++) {
                 this.options[i] = document.createElement("option");
@@ -80,8 +71,6 @@ export class CreateInput {
         return this.wrapp;
     }
 }
-// type MapType2 = Map<T, V>;
-// export class FormObjectWithValues implements MapType2 {
 export class ObjectWithFormValues {
     constructor(inputsArray, formVersion, formObj = new Map()) {
         this.inputsArray = inputsArray;
@@ -90,22 +79,13 @@ export class ObjectWithFormValues {
     }
     createMapObjWithFormValues() {
         this.inputsArray.forEach((el) => {
-            // formObj.set(el.selectObj.id, document.querySelector(`#${el.selectObj.id}`))
             this.formObj.set(el.selectObj.id, document.querySelector(`#${el.selectObj.id}`));
         });
         return this.formObj;
     }
-    // print(){
-    //   switch(this.formVersion){
-    //     case 'accounting':
-    //   }
     printMsg() {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w;
-        // console.log('logMet method');
         this.createMapObjWithFormValues();
-        // console.log(this.formVersion);
-        // console.log(this.formObj);
-        // console.log(this.formObj.get('type')?.value);
         let msg;
         switch (this.formVersion) {
             case "Accounting":
@@ -130,7 +110,6 @@ export class ObjectWithFormValues {
             case "Todo-List":
                 msg = `My new task is to &lt;b&gt;${(_r = this.formObj.get("task")) === null || _r === void 0 ? void 0 : _r.value}&lt;/b&gt;. It begins on &lt;b&gt;${(_s = this.formObj.get("start")) === null || _s === void 0 ? void 0 : _s.value}&lt;/b&gt; and must be accomplished by &lt;b&gt;${(_t = this.formObj.get("deadline")) === null || _t === void 0 ? void 0 : _t.value}&lt;/b&gt;`;
                 break;
-            // default: this.formObj.get('type')?.value; break
             default:
                 msg = `&lt;b&gt;${(_u = this.formObj.get("tofrom")) === null || _u === void 0 ? void 0 : _u.value}&lt;/b&gt; owes &lt;b&gt;$${(_v = this.formObj.get("amount")) === null || _v === void 0 ? void 0 : _v.value}&lt;/b&gt; for &lt;b&gt;${(_w = this.formObj.get("details")) === null || _w === void 0 ? void 0 : _w.value}&lt;/b&gt;`;
                 break;

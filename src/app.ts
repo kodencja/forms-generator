@@ -5,23 +5,22 @@ import {
 } from "./classes/Inputs.js";
 import { ListTemplate } from "./classes/ListTemplate.js";
 import {
-  formProps,
-  formPropsStart,
+  FormProps,
   ObjWithFormVal,
 } from "./interfaces/InputGeneral";
-import { fromInputProps } from "./vars/vars.js";
+import { inputProps } from "./vars/vars.js";
 
 document.addEventListener(
   "DOMContentLoaded",
   (ev: Event) => {
     console.log("document ready!");
-    createStartForm(fromInputProps);
+    createStartForm(inputProps);
   },
   false
 );
 
-const createStartForm = (fromInputProps: formPropsStart) => {
-  fromInputProps = {
+const createStartForm = (formInputProps: FormProps) => {
+  formInputProps = {
     labelSelect: ["Choose a form:"],
     selectID: ["form-type"],
     optionsText: [["Accounting", "Hotel booking", "Todo List"]],
@@ -31,13 +30,13 @@ const createStartForm = (fromInputProps: formPropsStart) => {
   const selectStart: GenerateInputProps<string[]> = new GenerateInputProps<
     string[]
   >(
-    fromInputProps.labelSelect[0],
+    formInputProps.labelSelect[0],
     "select",
-    fromInputProps.optionsText[0],
-    fromInputProps.optionsValue[0],
+    formInputProps.optionsText[0],
+    formInputProps.optionsValue[0],
     "option",
     undefined,
-    fromInputProps.selectID[0],
+    formInputProps.selectID[0],
     "select",
     undefined,
     undefined
@@ -62,7 +61,6 @@ const createStartForm = (fromInputProps: formPropsStart) => {
   mainTitle.innerText = "Forms Generator";
 
   const selectStartWrap = selectStartHTML.createInp()!;
-  console.log(selectStartWrap);
   form1.append(selectStartWrap);
   const btnSubmit = document.createElement("button");
   btnSubmit.type = "submit";
@@ -89,22 +87,9 @@ const handleSubmit = (
   type: HTMLSelectElement,
   formContainer: HTMLElement
 ): void => {
-  console.log("handleSubmit!");
 
   const mainTitle = document.querySelector("#wrapper h1") as HTMLElement;
   mainTitle.innerText = type.value;
-
-  let inputProps: formProps;
-  inputProps = {
-    labelSelect: [],
-    selectID: [],
-    optionsText: [],
-    optionsValue: [],
-    labelInput: [],
-    inputID: [],
-    placeholder: [],
-    types: [],
-  };
 
   if (type.value === "Accounting") {
     inputProps.labelSelect = ["Type:", "Order:"];
@@ -232,7 +217,6 @@ const handleSubmit = (
       inputsArray[inputsArray.length - 1] = el;
       inputsArray[ind] = last;
     } else if (el.selectObj.id === "personTitle") {
-      console.log("personTitle");
       const part1 = inputsArray.slice(0, ind);
       const part2 = inputsArray.slice(ind + 1, inputsArray.length - 1);
       const last = inputsArray.slice(inputsArray.length - 1);
@@ -271,7 +255,7 @@ const handleSubmit = (
 
   reset.addEventListener("click", (ev: Event): void => {
     ev.preventDefault();
-    createStartForm(fromInputProps);
+    createStartForm(inputProps);
   });
   
   form2.addEventListener("submit", (e: Event) => {
@@ -290,7 +274,6 @@ const handleSubmitForm = (e: Event, formAll: ObjWithFormVal) => {
 
   const formAllValues = formAll.createMapObjWithFormValues();
   const printText = formAll.printMsg();
-  console.log(printText);
 
   // list template instance
   const ul = document.querySelector("ul")!;
