@@ -38,3 +38,8 @@ export interface ObjWithFormVal {
   >;
   printMsg(): string;
 }
+
+export interface GetLetters {
+  arrOfLetters: string[];
+  requiredOne: string
+}

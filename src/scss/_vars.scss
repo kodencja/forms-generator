@@ -1,12 +1,73 @@
+@import "./mixin";
+
 %border-box {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+%just-align-center {
+  align-items: center;
+  justify-content: center;
 }
 
 %text-center {
-    text-align: center;
+  text-align: center;
 }
 
-$font-weights: ( "normal": 400, "fatter": 600, "bold": 700);
-$font-sizes: ( "small": 0.7rem, "smallquite": 0.8rem, "normal": 1rem)
+$font-weights: (
+  "normal": 400,
+  "fatter": 600,
+  "bold": 700,
+  "black": 900,
+);
+$font-sizes: (
+  "small": 0.7rem,
+  "smallquite": 0.85rem,
+  "normal": 1rem,
+  "large": 1.25rem,
+  "larger": 1.4rem,
+  "big": 1.6rem,
+  "bigger": 1.8rem,
+);
+
+$letter-sizes: (
+  "extraSmall": 0.5,
+  "small": 0.7,
+  "smallquite": 0.8,
+  "normal": 1,
+  "large": 1.25,
+  "larger": 1.4,
+  "big": 1.6,
+  "bigger": 1.8,
+);
+
+:root {
+  --time-form-anim: 1.8;
+  --letter-font-size: 1.25;
+  --wheelBox-width: calc(var(--letter-font-size) + 1.2);
+  --letter-height: calc(var(--wheelBox-width) + 0.05);
+  --letter-width: calc(var(--letter-font-size) + 0.45);
+}
+
+@include mediaQMaxW(500px) {
+  :root {
+    --letter-font-size: 1;
+  }
+}
+
+@include mediaQMaxW(450px) {
+  :root {
+    --letter-font-size: 0.8;
+  }
+}
+
+@include mediaQMaxW(350px) {
+  :root {
+    --letter-font-size: 0.75;
+  }
+}
+
+$degreeY: var(--degree-var);
+
+$frame-col: rgba(224, 200, 60, 0.924);
