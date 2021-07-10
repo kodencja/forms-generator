@@ -21,6 +21,7 @@ body {
   @include colorFn("bgr", #cfe5e7);
 
   min-height: 90vh;
+  max-height: 100%;
 }
 
 #wrapper {
