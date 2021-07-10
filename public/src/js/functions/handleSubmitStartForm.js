@@ -151,9 +151,13 @@ export const handleSubmitStartForm = (type, formContainer, wheelContainer, noOfL
         });
         formContainer.classList.remove("visible-form");
         formContainer.classList.add("hidden-form");
-        ul.innerHTML = "";
-        generateMainTitle(wheelContainer);
-        // createStartForm(inputProps, wheelContainer);
+        ul.classList.remove("visible-form");
+        ul.classList.add("hidden-form");
+        setTimeout(() => {
+            formContainer.innerHTML = "";
+            ul.innerHTML = "";
+            generateMainTitle(wheelContainer);
+        }, 270);
     });
     // --------- ********* ----------
     // 5) handle with submitted values from the NEW FORM

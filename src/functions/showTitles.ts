@@ -18,8 +18,8 @@ export const generateMainTitle = (wheelContainer:HTMLElement) =>{
   // call getWheelBoxes() method and loop through a returned array of wheels with letters as HTMLElement (wheelBoxesArr)
   wheelBoxes.getWheelBoxes().then((noOfletters) =>{
     wheelBoxes.wheelBoxesArr.forEach( el => wheelContainer.append(el));
-    delay = ((noOfletters-1) * 400) + animTimeNo + 250;
     setFrameWidth(noOfletters);
+    delay = ((noOfletters-1) * 400) + animTimeNo + 250;
   
     window.addEventListener("resize", ()=>{
       setFrameWidth(noOfletters);

@@ -209,9 +209,14 @@ export const handleSubmitStartForm = (
       })
       formContainer.classList.remove("visible-form");
     formContainer.classList.add("hidden-form");
-   ul.innerHTML = "";
+    ul.classList.remove("visible-form");
+    ul.classList.add("hidden-form");
+    
+    setTimeout(()=>{
+      formContainer.innerHTML = "";
+      ul.innerHTML = "";
       generateMainTitle(wheelContainer);
-      // createStartForm(inputProps, wheelContainer);
+    }, 270);
     });
   
   
