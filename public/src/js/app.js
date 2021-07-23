@@ -5,9 +5,15 @@ import { generateMainTitle } from "./functions/showTitles.js";
 
 2) SET WIDTH OF a div .frame adjusted to the width of .wheel-box
 
+2a) SHOW SPINNER
+2b) HIDE SPINNER
+
 3) Create a START FORM with ONE select tag with THREE OPTIONS (FORM TYPES): "Accounting", "Hotel booking", "Todo List"; add listener to the form
 
 4) handle submitted values from START FORM to CREATE A target NEW FORM
+
+4a) SHOW SPINNER
+4b) HIDE SPINNER
 
 5) handle with submitted values from the NEW FORM
 

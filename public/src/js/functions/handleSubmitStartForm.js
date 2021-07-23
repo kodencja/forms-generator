@@ -9,6 +9,8 @@ export const handleSubmitStartForm = (type, formContainer, wheelContainer, noOfL
     // to make form-container visible
     formContainer.classList.remove("hidden-form");
     formContainer.classList.add("visible-form");
+    // remove the spinner
+    formContainer.innerHTML = "";
     // 'inputProps' is an object with initialized values for all possible inputs, not just for a particular one, therefore all initialized values are put in an array []
     // attached the appriopriate values for props for the object 'inputProps' according to a value coming from the SELECT INPUT from the START FORM
     if (type.value === "Accounting") {
@@ -151,8 +153,8 @@ export const handleSubmitStartForm = (type, formContainer, wheelContainer, noOfL
         });
         formContainer.classList.remove("visible-form");
         formContainer.classList.add("hidden-form");
-        ul.classList.remove("visible-form");
-        ul.classList.add("hidden-form");
+        ul.classList.remove("visible");
+        ul.classList.add("hidden");
         setTimeout(() => {
             formContainer.innerHTML = "";
             ul.innerHTML = "";

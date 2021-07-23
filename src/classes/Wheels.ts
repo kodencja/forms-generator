@@ -8,7 +8,7 @@ export class CreateWheelBoxes {
       public wheelBoxesArr: HTMLDivElement[] = []
     ) {}
   
-    convertTitleIntoArray() {
+    convertTitleIntoArray():Promise<string[]> {
       return new Promise((resolve, reject) => {
         const splitTitle = this.title.split("");
         this.titleArr = splitTitle;
@@ -17,7 +17,7 @@ export class CreateWheelBoxes {
       });
     }
   
-    randomLetters(letter: string, ind:number) {
+    randomLetters(letter: string, ind:number):Promise<boolean> {
       return new Promise((resolve, reject) => {
         const arrDrawFrom = [...this.titleArr];
     let arrFromLength = arrDrawFrom.length;
@@ -90,7 +90,10 @@ export class CreateWheelBoxes {
                     })
             }).then(()=> {
                 resolve(this.titleArr.length);
-            })
+            }).catch((error)=> {
+              console.log(error);
+              reject(new Error(error));
+            });
       });
     }
   }

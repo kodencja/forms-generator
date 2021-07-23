@@ -80,6 +80,9 @@ export class CreateWheelBoxes {
                 });
             }).then(() => {
                 resolve(this.titleArr.length);
+            }).catch((error) => {
+                console.log(error);
+                reject(new Error(error));
             });
         });
     }

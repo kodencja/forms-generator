@@ -9,8 +9,8 @@ export const handleSubmitForm = (e: Event, formAll: ObjWithFormVal, ul:HTMLUList
     const formAllValues = formAll.createMapObjWithFormValues();
   
     console.log(formAllValues);
-    ul.classList.add("visible-form");
-    ul.classList.remove("hidden-form");
+    ul.classList.add("visible");
+    ul.classList.remove("hidden");
   
     // get a MESSAGE from 'printMsg()' method of the class "ObjectWithFormValues"
     const printText = formAll.printMsg();

@@ -6,8 +6,8 @@ export const handleSubmitForm = (e, formAll, ul) => {
     // create a MAP OBJECT where "KEYS" represents ID of particular SELECT / INPUT tags, while "VALUES" - the SELECT / INPUT tags themselves
     const formAllValues = formAll.createMapObjWithFormValues();
     console.log(formAllValues);
-    ul.classList.add("visible-form");
-    ul.classList.remove("hidden-form");
+    ul.classList.add("visible");
+    ul.classList.remove("hidden");
     // get a MESSAGE from 'printMsg()' method of the class "ObjectWithFormValues"
     const printText = formAll.printMsg();
     // --------- ********* ----------

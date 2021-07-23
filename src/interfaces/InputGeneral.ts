@@ -43,3 +43,12 @@ export interface GetLetters {
   arrOfLetters: string[];
   requiredOne: string
 }
+
+export interface Balls {
+  width: number;
+  height: number;
+  noOfBalls: number;
+  className: string;
+  wrappBalls?:HTMLDivElement;
+  // wrappBalls:HTMLDivElement | null;
+}

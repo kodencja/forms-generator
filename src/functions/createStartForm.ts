@@ -41,7 +41,7 @@ export const createStartForm = (formInputProps: FormProps, wheelContainer:HTMLEl
     );
   
     const form1 = document.createElement("form") as HTMLFormElement;
-    const mainTitle = document.querySelector("#wrapper h1") as HTMLElement;
+    // const mainTitle = document.querySelector("#wrapper h1") as HTMLElement;
     // const wheelContainer = document.querySelector(".wheel-container") as HTMLElement;
     const itemList = document.querySelector("#wrapper ul") as HTMLUListElement;
     const formContainer = document.querySelector(

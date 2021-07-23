@@ -14,7 +14,7 @@ export const createStartForm = (formInputProps, wheelContainer, noOfletters) => 
     // create an object with an object "selectStart" containing props and values needed to create a Select Input, plus name of the "wrappClassName", and name of the "wrappTagName"; the "undefined" arguments are to be defined / filled in later within CreateInput class' methods
     const selectStartHTML = new CreateInput(selectStart, undefined, "all-forms", "div", undefined);
     const form1 = document.createElement("form");
-    const mainTitle = document.querySelector("#wrapper h1");
+    // const mainTitle = document.querySelector("#wrapper h1") as HTMLElement;
     // const wheelContainer = document.querySelector(".wheel-container") as HTMLElement;
     const itemList = document.querySelector("#wrapper ul");
     const formContainer = document.querySelector(".form-container");

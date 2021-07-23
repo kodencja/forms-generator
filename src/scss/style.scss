@@ -117,8 +117,17 @@ div.form-container {
   }
 }
 
-.visible-form {
+.visible {
   opacity: 1;
+  transition: all 0.65s linear;
+}
+
+.hidden {
+  opacity: 0;
+  transition: all 0.25s linear;
+}
+
+.visible-form {
   // @include colorFn("bgr", rgba(208, 219, 236, 0.746));
   // @include colorFn("bgr", rgb(3, 158, 39));
   @include colorFn("bgr", rgb(80, 140, 151));
@@ -127,8 +136,6 @@ div.form-container {
 
 .hidden-form {
   @include colorFn("bgr", transparent);
-  // background-color: ;
-  opacity: 0;
   transition: all 0.25s linear;
 }
 
@@ -218,7 +225,8 @@ div.form-container {
     @extend %text-center;
     @include border(0.1px, 0.1px, 0.1px, 0.1px, solid, rgb(97, 94, 94));
     @include colorFn("bgr", white);
-    box-shadow: 0 0 2px rgba(0, 72, 167, 0.5);
+    @include boxShadow(0, 0, 2px, 0, rgba(51, 51, 51, 1));
+    // box-shadow: 0 0 2px rgba(0, 72, 167, 0.5);
 
     p {
       transform: rotateZ(90deg);
@@ -233,6 +241,38 @@ div.form-container {
 
     transform: rotateY(calc(var(--degree-var) * 1deg))
       translateZ(translZCSS(--letter-height));
+  }
+}
+
+.bouncer {
+  display: flex;
+  @include paddMrg("margin", auto);
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: flex-end;
+  width: 200px;
+  height: 125px;
+  position: relative;
+  border-bottom: 1px solid rgba(16, 37, 129, 0.876);
+}
+
+.ball {
+  // background-color: #01991b;
+  // background-color: #0077cc;
+  @include colorFn("bgr", rgb(25, 175, 11));
+  // background-color: rgb(25, 175, 11);
+  // background-color: #cf0083;
+  border-radius: 50%;
+  animation: bouncing 0.55s cubic-bezier(0.18, 0.6, 0.4, 0.98) infinite
+    alternate backwards;
+}
+
+@keyframes bouncing {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
   }
 }
 
