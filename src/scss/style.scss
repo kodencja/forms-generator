@@ -97,7 +97,7 @@ button {
   border-radius: 4px;
 }
 
-div.form-container {
+.form-container {
   @include paddMrg("padding", 15px, 30px, 30px, 30px);
   @include paddMrg("margin", "top", 60px);
 
@@ -250,8 +250,8 @@ div.form-container {
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: flex-end;
-  width: 200px;
-  height: 125px;
+  width: 150px;
+  height: 150px;
   position: relative;
   border-bottom: 1px solid rgba(16, 37, 129, 0.876);
 }
@@ -288,6 +288,10 @@ div.form-container {
     top: calc(var(--letter-font-size) * 15%);
     height: 95%;
   }
+  .bouncer {
+    width: 130px;
+    height: 130px;
+  }
 }
 
 @include mediaQMaxW(450px) {
@@ -302,6 +306,11 @@ div.form-container {
     top: calc(var(--letter-font-size) * 25%);
     height: 90%;
   }
+
+  .bouncer {
+    width: 115px;
+    height: 115px;
+  }
 }
 
 @include mediaQMaxW(350px) {
@@ -315,5 +324,24 @@ div.form-container {
   .frame {
     top: calc(var(--letter-font-size) * 27%);
     height: 90%;
+  }
+  .bouncer {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@include mediaQMaxH(539px) {
+  .form-container {
+    @include paddMrg("margin", "top", 15px);
+  }
+
+  #wheel-wrapp {
+    @include paddMrg("margin", "bottom", 1.75rem);
+  }
+
+  .bouncer {
+    width: 100px;
+    height: 100px;
   }
 }

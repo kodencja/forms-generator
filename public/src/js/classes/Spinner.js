@@ -13,10 +13,13 @@ export class SpinnerBalls {
         return new Promise((resolve, reject) => {
             for (let i = 0; i < this.noOfBalls; i++) {
                 const ball = document.createElement("div");
-                ball.style.width = `${this.width - this.width * (i / 10)}px`;
-                ball.style.height = `${this.height - this.height * (i / 10)}px`;
+                ball.style.width = `${this.width - this.width * (i / 10)}%`;
+                ball.style.height = `${this.height - this.height * (i / 10)}%`;
                 ball.style.opacity = `${1 - i / 10}`;
                 ball.style.animationDelay = `0.${i}s`;
+                if (this.noOfBalls > 4) {
+                    ball.style.animationDuration = `${0.75 - 0.02 * i}s`;
+                }
                 ball.classList.add(`${this.className}`);
                 wrapp.appendChild(ball);
                 if (i >= this.noOfBalls - 1) {

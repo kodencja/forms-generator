@@ -36,7 +36,7 @@ export const generateMainTitle = (wheelContainer: HTMLElement) => {
     formContainer.innerHTML = "";
 
     // 2a) show the spinner
-    const spinner = new SpinnerBalls(22, 22, 7, "ball");
+    const spinner = new SpinnerBalls(15, 15, 7, "ball");
     spinner.getTheBalls().then((balls) => {
       balls!.classList.remove("hidden");
       balls!.classList.add("visible");
@@ -74,7 +74,7 @@ export const showSubTitle = (
 
   // 4a) CREATE AND SHOW SPINNER
   let ballsSpin: HTMLDivElement;
-  const spinner = new SpinnerBalls(20, 20, 4, "ball");
+  const spinner = new SpinnerBalls(13, 13, 4, "ball");
   spinner.getTheBalls().then((balls) => {
     balls!.classList.remove("hidden");
     balls!.classList.add("visible");

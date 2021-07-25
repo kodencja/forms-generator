@@ -137,7 +137,7 @@ button {
   border-radius: 4px;
 }
 
-div.form-container {
+.form-container {
   padding-top: 15px;
   padding-right: 30px;
   padding-bottom: 30px;
@@ -145,13 +145,13 @@ div.form-container {
   margin-top: 60px;
 }
 
-div.form-container button.btn-submit {
+.form-container button.btn-submit {
   display: block;
   margin: auto;
   margin-top: 1.5rem;
 }
 
-div.form-container button.reset {
+.form-container button.reset {
   display: block;
   margin: auto;
   margin-top: 2rem;
@@ -325,8 +325,8 @@ div.form-container button.reset {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  width: 200px;
-  height: 125px;
+  width: 150px;
+  height: 150px;
   position: relative;
   border-bottom: 1px solid rgba(16, 37, 129, 0.876);
 }
@@ -372,6 +372,10 @@ div.form-container button.reset {
     top: calc(var(--letter-font-size) * 15%);
     height: 95%;
   }
+  .bouncer {
+    width: 130px;
+    height: 130px;
+  }
 }
 
 @media screen and (max-width: 450px) {
@@ -386,6 +390,10 @@ div.form-container button.reset {
     top: calc(var(--letter-font-size) * 25%);
     height: 90%;
   }
+  .bouncer {
+    width: 115px;
+    height: 115px;
+  }
 }
 
 @media screen and (max-width: 350px) {
@@ -399,5 +407,22 @@ div.form-container button.reset {
   .frame {
     top: calc(var(--letter-font-size) * 27%);
     height: 90%;
+  }
+  .bouncer {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-height: 539px) {
+  .form-container {
+    margin-top: 15px;
+  }
+  #wheel-wrapp {
+    margin-bottom: 1.75rem;
+  }
+  .bouncer {
+    width: 100px;
+    height: 100px;
   }
 }

@@ -25,7 +25,7 @@ export const generateMainTitle = (wheelContainer) => {
         const formContainer = document.querySelector(".form-container");
         formContainer.innerHTML = "";
         // 2a) show the spinner
-        const spinner = new SpinnerBalls(22, 22, 7, "ball");
+        const spinner = new SpinnerBalls(15, 15, 7, "ball");
         spinner.getTheBalls().then((balls) => {
             balls.classList.remove("hidden");
             balls.classList.add("visible");
@@ -53,7 +53,7 @@ export const showSubTitle = (type, formContainer, wheelContainer) => {
     formContainer.innerHTML = "";
     // 4a) CREATE AND SHOW SPINNER
     let ballsSpin;
-    const spinner = new SpinnerBalls(20, 20, 4, "ball");
+    const spinner = new SpinnerBalls(13, 13, 4, "ball");
     spinner.getTheBalls().then((balls) => {
         balls.classList.remove("hidden");
         balls.classList.add("visible");
